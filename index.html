@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunpower - Cut Your Electric Bill by 70%</title>
+  <meta name="description" content="Sunpower installs premium solar panels for Kenyan homes. Cut your KPLC bill by 70%. Free quote in 60 seconds.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --text: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --text-tertiary: #86868b;
+      --bg: #FFFFFF;
+      --bg-section: #f5f5f7;
+      --border: rgba(0,0,0,0.08);
+      --accent: #1d1d1f;
+      --radius: 16px;
+      --radius-lg: 24px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.5;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      z-index: 1000;
+      padding: 0 2.5rem;
+      height: 52px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.2px;
+    }
+
+    .logo-mark { width: 24px; height: 24px; flex-shrink: 0; }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover { color: var(--text-secondary); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--bg);
+      padding: 0.45rem 1.1rem;
+      border-radius: 980px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.8rem;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover { opacity: 0.82; }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 5rem;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      letter-spacing: 0.5px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -3px;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 .hl {
+      background: linear-gradient(135deg, #f2a600, #ff6b00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+      font-weight: 400;
+      letter-spacing: -0.2px;
+    }
+
+    .hero p strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--bg);
+      padding: 1rem 2rem;
+      border-radius: 980px;
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 500;
+      transition: transform 0.2s, opacity 0.2s;
+      letter-spacing: -0.2px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.03);
+      opacity: 0.9;
+    }
+
+    .hero-sub {
+      margin-top: 0.85rem;
+      color: var(--text-tertiary);
+      font-size: 0.8rem;
+    }
+
+    .trust-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3.5rem;
+      margin-top: 5rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      text-align: center;
+    }
+
+    .trust-item .num {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: var(--text);
+      line-height: 1.1;
+    }
+
+    .trust-item .label {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      margin-top: 0.25rem;
+      letter-spacing: 0.2px;
+    }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      padding: 7rem 2rem;
+    }
+
+    .section-dark {
+      background: var(--bg-section);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      color: var(--text);
+    }
+
+    .section-header p {
+      margin-top: 1rem;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      letter-spacing: -0.1px;
+    }
+
+    .container { max-width: 1080px; margin: 0 auto; }
+    .container-narrow { max-width: 720px; margin: 0 auto; }
+
+    /* ===== STEPS ===== */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .step {
+      background: var(--bg);
+      padding: 3rem 2.5rem;
+    }
+
+    .section-dark .step {
+      background: var(--bg-section);
+    }
+
+    .step-num {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: -2px;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 1.25rem;
+      opacity: 0.12;
+    }
+
+    .step h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.3px;
+    }
+
+    .step p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ===== TEAM ===== */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 4rem;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .team-grid img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .team-grid img:hover {
+      transform: scale(1.04);
+    }
+
+    .team-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+      gap: 2rem;
+    }
+
+    .team-stat .val {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text);
+      display: block;
+      letter-spacing: -1px;
+      line-height: 1.1;
+    }
+
+    .team-stat .lbl {
+      font-size: 0.7rem;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.4rem;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .testimonial {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-4px);
+    }
+
+    .testimonial blockquote {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 1.75rem;
+      letter-spacing: -0.1px;
+    }
+
+    .testimonial-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+
+    .testimonial-author span {
+      display: block;
+      font-weight: 400;
+      color: var(--text-tertiary);
+      font-size: 0.75rem;
+      margin-top: 0.1rem;
+    }
+
+    .testimonial-savings {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #1d7d3f;
+      letter-spacing: 0.2px;
+    }
+
+    /* ===== FAQ ===== */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.5rem 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: inherit;
+      letter-spacing: -0.3px;
+      transition: color 0.2s;
+    }
+
+    .faq-btn:hover { color: var(--text-secondary); }
+
+    .faq-btn::after {
+      content: "+";
+      font-size: 1.5rem;
+      color: var(--text-tertiary);
+      font-weight: 300;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+      margin-left: 2rem;
+    }
+
+    .faq-item.active .faq-btn::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .faq-body-inner {
+      padding: 0 0 1.5rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .faq-item.active .faq-body { max-height: 300px; }
+
+    /* ===== FORM ===== */
+    .form-section {
+      padding: 7rem 2rem;
+      background: var(--bg-section);
+    }
+
+    .form-card {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .form-card h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 0.4rem;
+      text-align: center;
+    }
+
+    .form-card .form-sub {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .field { margin-bottom: 0.85rem; }
+
+    .field label {
+      display: block;
+      font-weight: 500;
+      font-size: 0.8rem;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 0.7rem 0.85rem;
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .field input:focus,
+    .field select:focus {
+      outline: none;
+      border-color: #0071e3;
+      box-shadow: 0 0 0 3px rgba(0,113,227,0.15);
+    }
+
+    .field input::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    .form-btn {
+      width: 100%;
+      background: var(--accent);
+      color: var(--bg);
+      padding: 0.85rem;
+      border: none;
+      border-radius: 980px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.2s, transform 0.2s;
+      margin-top: 0.75rem;
+    }
+
+    .form-btn:hover {
+      opacity: 0.85;
+      transform: scale(1.01);
+    }
+
+    .form-note {
+      text-align: center;
+      margin-top: 0.85rem;
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-strip {
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .contact-strip h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.5px;
+    }
+
+    .contact-strip .contact-sub {
+      font-size: 0.9rem;
+      color: var(--text-tertiary);
+      margin-bottom: 2rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.65rem 1.25rem;
+      background: var(--bg-section);
+      border-radius: 980px;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+    }
+
+    .contact-link:hover {
+      background: #e8e8ed;
+      transform: scale(1.02);
+    }
+
+    .contact-link svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 1.75rem 2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      background: var(--bg-section);
+    }
+
+    .footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .footer a:hover { text-decoration: underline; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav { padding: 0 1.25rem; }
+      .steps { grid-template-columns: 1fr; }
+      .testimonials { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+      .team-grid img { height: 240px; }
+      .team-stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .trust-bar { gap: 2rem; }
+      .section { padding: 5rem 1.5rem; }
+      .form-section { padding: 5rem 1.5rem; }
+      .hero { padding: 7rem 1.5rem 3rem; }
+      .contact-links { flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2.75rem; letter-spacing: -1.5px; }
+      .testimonial-footer { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .nav-link { display: none; }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-badge { animation: fadeUp 0.8s ease 0.1s both; }
+    .hero h1 { animation: fadeUp 0.8s ease 0.2s both; }
+    .hero p { animation: fadeUp 0.8s ease 0.35s both; }
+    .hero .cta-btn { animation: fadeUp 0.8s ease 0.5s both; }
+    .hero-sub { animation: fadeUp 0.8s ease 0.6s both; }
+    .trust-bar { animation: fadeUp 0.8s ease 0.75s both; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== SUN CURSOR ===== */
+    body { cursor: none; }
+    a, button, select, input { cursor: none; }
+
+    .sun-cursor {
+      position: fixed;
+      width: 28px;
+      height: 28px;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease, opacity 0.2s ease;
+    }
+
+    .sun-glow {
+      position: fixed;
+      width: 200px;
+      height: 200px;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(242,166,0,0.12) 0%, rgba(255,107,0,0.04) 40%, transparent 70%);
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.4s ease, width 0.4s ease, height 0.4s ease;
+    }
+
+    .sun-glow.active {
+      opacity: 1;
+    }
+
+    /* Glow on interactive elements */
+    .glowable {
+      transition: box-shadow 0.4s ease, transform 0.3s ease;
+    }
+
+    .glowable.sun-hover {
+      box-shadow: 0 0 40px rgba(242,166,0,0.2), 0 0 80px rgba(255,107,0,0.08);
+    }
+
+    .testimonial.sun-hover {
+      box-shadow: 0 0 40px rgba(242,166,0,0.18), 0 0 80px rgba(255,107,0,0.06);
+      transform: translateY(-4px);
+    }
+
+    .step.sun-hover {
+      background: linear-gradient(180deg, rgba(242,166,0,0.03) 0%, transparent 60%);
+    }
+
+    .cta-btn.sun-hover,
+    .nav-cta.sun-hover,
+    .form-btn.sun-hover {
+      box-shadow: 0 0 30px rgba(242,166,0,0.3), 0 0 60px rgba(255,107,0,0.1);
+    }
+
+    .contact-link.sun-hover {
+      box-shadow: 0 0 25px rgba(242,166,0,0.2), 0 0 50px rgba(255,107,0,0.06);
+      transform: scale(1.04);
+    }
+
+    .faq-btn.sun-hover {
+      color: #f2a600 !important;
+    }
+
+    @media (max-width: 768px) {
+      .sun-cursor, .sun-glow { display: none; }
+      body, a, button, select, input { cursor: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#" class="nav-logo"><svg class="logo-mark" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="12" r="6.5" fill="#1d1d1f"/><line x1="14" y1="1" x2="14" y2="4" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round"/><line x1="5.5" y1="4.5" x2="7.6" y2="6.6" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round"/><line x1="22.5" y1="4.5" x2="20.4" y2="6.6" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round"/><line x1="2" y1="12" x2="5" y2="12" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round"/><line x1="23" y1="12" x2="26" y2="12" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="22" x2="25" y2="22" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round"/></svg>Sunpower</a>
+    <div class="nav-right">
+      <a href="#contact" class="nav-link">Contact Us</a>
+      <a href="#quote" class="nav-cta">Get Free Quote</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">Available in Kenya</div>
+    <h1>Cut Your Electric Bill by <span class="hl">70%</span></h1>
+    <p>
+      Sunpower installs premium solar panels and handles every permit.
+      Stop paying KPLC <strong>thousands every month</strong> when the sun is free.
+    </p>
+    <a href="#quote" class="cta-btn">Get Your Free Quote in 60 Seconds</a>
+    <div class="hero-sub">No obligation. No pushy salespeople.</div>
+
+    <div class="trust-bar">
+      <div class="trust-item">
+        <span class="num" data-count="50" data-suffix="+">0</span>
+        <div class="label">Homes Powered</div>
+      </div>
+      <div class="trust-item">
+        <span class="num" data-count="25" data-suffix="+" data-prefix="KES ">KES 0</span>
+        <div class="label">KPLC Rate/kWh</div>
+      </div>
+      <div class="trust-item">
+        <span class="num" data-count="0" data-prefix="KES ">KES 0</span>
+        <div class="label">Cost of Sunlight</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>3 Steps. That's It.</h2>
+      </div>
+
+      <div class="steps reveal">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Get Your Free Quote</h3>
+          <p>Fill out the 60-second form. We'll model your roof, your usage, and your exact savings - free.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>We Handle Everything</h3>
+          <p>Design, permits, install - all done by our in-house team. You don't lift a finger.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Watch Your Bills Shrink</h3>
+          <p>Your system goes live. You start saving from Day 1.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Certified Technicians. Professional Installations.</h2>
+        <p>
+          Every Sunpower installation is carried out by fully certified, safety-trained solar technicians.
+          No subcontractors. No shortcuts. Just a team that takes pride in doing the job right the first time.
+        </p>
+      </div>
+
+      <div class="team-grid reveal">
+        <img src="images/team-install-1.jpg" alt="Sunpower technicians installing solar panels on a rooftop in Kenya">
+        <img src="images/team-install-2.jpg" alt="Certified solar technician securing panel connections on a residential roof">
+        <img src="images/team-install-3.jpg" alt="Sunpower engineers reviewing solar system design on site">
+      </div>
+
+      <div class="team-stats reveal">
+        <div class="team-stat">
+          <span class="val" data-count="50" data-suffix="+">0</span>
+          <span class="lbl">Completed Projects</span>
+        </div>
+        <div class="team-stat">
+          <span class="val">Certified</span>
+          <span class="lbl">Licensed Installers</span>
+        </div>
+        <div class="team-stat">
+          <span class="val">In-House</span>
+          <span class="lbl">No Subcontractors</span>
+        </div>
+        <div class="team-stat">
+          <span class="val">Zero</span>
+          <span class="lbl">Safety Incidents</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>50+ Homeowners Already Made the Switch</h2>
+      </div>
+
+      <div class="testimonials reveal">
+        <div class="testimonial">
+          <blockquote>"We were spending KES 14,000 every month on electricity. After Sunpower installed our system, our last KPLC bill was KES 2,100. My husband didn't believe it at first. Best decision we've made for this household."</blockquote>
+          <div class="testimonial-footer">
+            <div class="testimonial-author">Sarah M.<span>Karen, Nairobi</span></div>
+            <div class="testimonial-savings">Saving KES 142,800/yr</div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <blockquote>"The whole process took 1 week from quote to generating power. No hassle, no hidden costs. My KPLC token purchases went from KES 7,000/month to almost nothing."</blockquote>
+          <div class="testimonial-footer">
+            <div class="testimonial-author">James O.<span>Kitengela</span></div>
+            <div class="testimonial-savings">Saving KES 84,000/yr</div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <blockquote>"We used to dread the KPLC bill every month. KES 18,000 gone, just like that. Now our system generates more than we use and we're feeding excess back to the grid."</blockquote>
+          <div class="testimonial-footer">
+            <div class="testimonial-author">Wanjiku K.<span>Runda, Nairobi</span></div>
+            <div class="testimonial-savings">Saving KES 180,000/yr</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container-narrow">
+      <div class="section-header reveal">
+        <h2>Questions? We've Got Answers.</h2>
+      </div>
+
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-btn">How much does it actually cost?</button>
+          <div class="faq-body">
+            <div class="faq-body-inner">A typical 5kW home system costs KES 650,000 - 850,000 depending on your roof and energy needs. With KPLC charging KES 25+ per kWh, most systems pay for themselves within 3-4 years. After that, your electricity is essentially free for 20+ years.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">What if my roof isn't suitable?</button>
+          <div class="faq-body">
+            <div class="faq-body-inner">We do a free assessment before anything else. If your roof isn't a good fit, we can also install ground-mounted systems. About 95% of homes qualify.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">How long does installation take?</button>
+          <div class="faq-body">
+            <div class="faq-body-inner">Most installations are completed in 1-2 days. The entire process from quote to generating power typically takes 1 week, including all permits and approvals.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">What happens if I sell my house?</button>
+          <div class="faq-body">
+            <div class="faq-body-inner">Great news: solar panels increase home value by an average of 4.1%. The system transfers to the new owner, making your home more attractive to buyers. It's a selling point, not a burden.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">Do panels work on cloudy days?</button>
+          <div class="faq-body">
+            <div class="faq-body-inner">Yes. Modern panels generate power from daylight, not direct sunlight. Even on overcast days, your system produces energy. We factor local weather patterns into our savings projections so there are no surprises.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">Where do you do installations?</button>
+          <div class="faq-body">
+            <div class="faq-body-inner">Anywhere in Kenya. Whether you're in Nairobi, Mombasa, Kisumu, or anywhere else in the country, we'll come to you.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">What's the catch?</button>
+          <div class="faq-body">
+            <div class="faq-body-inner">There isn't one. We make money when you save money - our business model is built on customer success, not hidden fees. If we can't save you money, we don't deserve yours.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="form-section" id="quote">
+    <div class="form-card reveal">
+      <h2>Get Your Free Solar Savings Report</h2>
+      <p class="form-sub">Find out exactly how much you'll save. Takes 60 seconds. Zero obligation.</p>
+
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="field">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="John" required>
+          </div>
+          <div class="field">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Smith" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" required>
+        </div>
+        <div class="field">
+          <label for="phone"><svg style="display:inline-block;vertical-align:middle;width:14px;height:14px;margin-right:3px;opacity:0.5;" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.111.546 4.104 1.508 5.836L0 24l6.336-1.469A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.898 0-3.72-.51-5.32-1.468l-.382-.227-3.96.919.99-3.62-.25-.397A9.784 9.784 0 012.182 12c0-5.421 4.397-9.818 9.818-9.818S21.818 6.579 21.818 12s-4.397 9.818-9.818 9.818z"/></svg> Phone Number (WhatsApp)</label>
+          <input type="tel" id="phone" name="phone" placeholder="+254 7XX XXX XXX" required>
+        </div>
+        <div class="field">
+          <label for="bill">Your KPLC Bill Per Month</label>
+          <select id="bill" name="bill" required>
+            <option value="" disabled selected>Select your range</option>
+            <option value="under-5k">Under KES 5,000</option>
+            <option value="5k-10k">KES 5,000 - 10,000</option>
+            <option value="10k-20k">KES 10,000 - 20,000</option>
+            <option value="20k-40k">KES 20,000 - 40,000</option>
+            <option value="40k+">KES 40,000+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="budget">Your Budget</label>
+          <select id="budget" name="budget" required>
+            <option value="" disabled selected>Select your budget range</option>
+            <option value="under-300k">Under KES 300,000</option>
+            <option value="300k-500k">KES 300,000 - 500,000</option>
+            <option value="500k-800k">KES 500,000 - 800,000</option>
+            <option value="800k-1m">KES 800,000 - 1,000,000</option>
+            <option value="1m+">KES 1,000,000+</option>
+            <option value="not-sure">Not sure yet</option>
+          </select>
+        </div>
+        <button type="submit" class="form-btn">Get My Free Solar Quote</button>
+        <p class="form-note">Your info is 100% secure. We hate spam as much as you do.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-strip reveal" id="contact">
+    <h3>Prefer to reach out directly?</h3>
+    <p class="contact-sub">We typically respond within a few minutes.</p>
+    <div class="contact-links">
+      <a href="https://wa.me/254795315795" class="contact-link" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.111.546 4.104 1.508 5.836L0 24l6.336-1.469A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.898 0-3.72-.51-5.32-1.468l-.382-.227-3.96.919.99-3.62-.25-.397A9.784 9.784 0 012.182 12c0-5.421 4.397-9.818 9.818-9.818S21.818 6.579 21.818 12s-4.397 9.818-9.818 9.818z"/></svg>
+        +254 795 315 795
+      </a>
+      <button class="contact-link" id="copy-phone" data-number="+25476404820">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <span>+254 764 048 20</span>
+      </button>
+      <a href="mailto:info@sunpower.today" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        info@sunpower.today
+      </a>
+    </div>
+  </section>
+
+  <!-- SUN CURSOR -->
+  <div class="sun-cursor">
+    <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="14" cy="14" r="6" fill="#f2a600"/>
+      <line x1="14" y1="2" x2="14" y2="5.5" stroke="#f2a600" stroke-width="2" stroke-linecap="round"/>
+      <line x1="14" y1="22.5" x2="14" y2="26" stroke="#f2a600" stroke-width="2" stroke-linecap="round"/>
+      <line x1="2" y1="14" x2="5.5" y2="14" stroke="#f2a600" stroke-width="2" stroke-linecap="round"/>
+      <line x1="22.5" y1="14" x2="26" y2="14" stroke="#f2a600" stroke-width="2" stroke-linecap="round"/>
+      <line x1="5.8" y1="5.8" x2="8.3" y2="8.3" stroke="#f2a600" stroke-width="2" stroke-linecap="round"/>
+      <line x1="19.7" y1="19.7" x2="22.2" y2="22.2" stroke="#f2a600" stroke-width="2" stroke-linecap="round"/>
+      <line x1="5.8" y1="22.2" x2="8.3" y2="19.7" stroke="#f2a600" stroke-width="2" stroke-linecap="round"/>
+      <line x1="19.7" y1="8.3" x2="22.2" y2="5.8" stroke="#f2a600" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="sun-glow"></div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2026 Sunpower. All rights reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Service</a></p>
+  </footer>
+
+  <script>
+    // FAQ
+    document.querySelectorAll('.faq-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.parentElement;
+        var isActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(function(el) {
+          el.classList.remove('active');
+        });
+        if (!isActive) item.classList.add('active');
+      });
+    });
+
+    // Reveal on scroll
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      observer.observe(el);
+    });
+
+    // Count-up
+    function animateCount(el, target, suffix, prefix) {
+      prefix = prefix || '';
+      suffix = suffix || '';
+      var duration = 1500;
+      var startTime = null;
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = Math.floor(eased * target);
+        el.textContent = prefix + current.toLocaleString() + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    var countObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !entry.target.dataset.counted) {
+          entry.target.dataset.counted = 'true';
+          entry.target.querySelectorAll('[data-count]').forEach(function(num) {
+            animateCount(num, parseInt(num.dataset.count), num.dataset.suffix || '', num.dataset.prefix || '');
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.trust-bar, .team-stats').forEach(function(el) {
+      countObserver.observe(el);
+    });
+
+    // Form
+    function handleSubmit(e) {
+      e.preventDefault();
+      var btn = e.target.querySelector('.form-btn');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      fetch('https://formspree.io/f/xeerypwy', {
+        method: 'POST',
+        body: new FormData(e.target),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(res) {
+        if (res.ok) {
+          btn.textContent = 'Quote Requested!';
+          btn.style.background = '#1d7d3f';
+          e.target.reset();
+        } else {
+          btn.textContent = 'Error - Try Again';
+          btn.disabled = false;
+        }
+      }).catch(function() {
+        btn.textContent = 'Error - Try Again';
+        btn.disabled = false;
+      });
+    }
+
+    // Copy phone number
+    document.getElementById('copy-phone').addEventListener('click', function() {
+      var num = this.dataset.number;
+      var label = this.querySelector('span');
+      navigator.clipboard.writeText(num).then(function() {
+        label.textContent = 'Copied!';
+        setTimeout(function() { label.textContent = '+254 764 048 20'; }, 2000);
+      });
+    });
+
+    // Sun cursor
+    (function() {
+      var cursor = document.querySelector('.sun-cursor');
+      var glow = document.querySelector('.sun-glow');
+      if (!cursor || !glow) return;
+
+      var mouseX = -100, mouseY = -100;
+      var curX = -100, curY = -100;
+
+      document.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        glow.classList.add('active');
+      });
+
+      document.addEventListener('mouseleave', function() {
+        cursor.style.opacity = '0';
+        glow.classList.remove('active');
+      });
+
+      document.addEventListener('mouseenter', function() {
+        cursor.style.opacity = '1';
+        glow.classList.add('active');
+      });
+
+      function tick() {
+        curX += (mouseX - curX) * 0.15;
+        curY += (mouseY - curY) * 0.15;
+        cursor.style.left = mouseX + 'px';
+        cursor.style.top = mouseY + 'px';
+        glow.style.left = curX + 'px';
+        glow.style.top = curY + 'px';
+        requestAnimationFrame(tick);
+      }
+      tick();
+
+      // Glow on hoverable elements
+      var glowTargets = '.testimonial, .step, .cta-btn, .nav-cta, .form-btn, .contact-link, .faq-btn';
+      document.querySelectorAll(glowTargets).forEach(function(el) {
+        el.addEventListener('mouseenter', function() {
+          this.classList.add('sun-hover');
+          cursor.style.transform = 'translate(-50%, -50%) scale(1.3)';
+          glow.style.width = '300px';
+          glow.style.height = '300px';
+        });
+        el.addEventListener('mouseleave', function() {
+          this.classList.remove('sun-hover');
+          cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+          glow.style.width = '200px';
+          glow.style.height = '200px';
+        });
+      });
+    })();
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
