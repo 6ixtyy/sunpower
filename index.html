@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sunpower - Cut Your Electric Bill by 70%</title>
-  <meta name="description" content="Sunpower installs premium solar panels for Kenyan homes. Cut your KPLC bill by 70%. Free quote in 60 seconds.">
+  <title>Very Very Sunny - Cut Your Electric Bill by 70%</title>
+  <meta name="description" content="Very Very Sunny installs premium solar panels for Kenyan homes. Cut your KPLC bill by 70%. Free quote in 60 seconds.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -105,7 +105,115 @@
       padding: 8rem 2rem 5rem;
       max-width: 980px;
       margin: 0 auto;
+      position: relative;
     }
+
+    /* Solar panel grid behind hero */
+    .hero-solar {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 1200px;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .solar-panel-row {
+      position: absolute;
+      display: flex;
+      gap: 6px;
+    }
+
+    .solar-panel {
+      width: 80px;
+      height: 52px;
+      background: linear-gradient(145deg, #e8edf2 0%, #d1d9e3 30%, #bcc6d1 60%, #a8b5c2 100%);
+      border-radius: 3px;
+      position: relative;
+      opacity: 0;
+      animation: panelFadeIn 1.2s ease forwards;
+    }
+
+    .solar-panel::before {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      background: linear-gradient(145deg, #2c3e50 0%, #1a2a3a 40%, #0f1d2d 100%);
+      border-radius: 2px;
+    }
+
+    .solar-panel::after {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      background:
+        linear-gradient(90deg, transparent 48%, rgba(160,180,200,0.3) 48%, rgba(160,180,200,0.3) 52%, transparent 52%),
+        linear-gradient(0deg, transparent 48%, rgba(160,180,200,0.3) 48%, rgba(160,180,200,0.3) 52%, transparent 52%);
+      border-radius: 2px;
+    }
+
+    /* Sunlight reflection shimmer */
+    .solar-panel .shimmer {
+      position: absolute;
+      inset: 3px;
+      border-radius: 2px;
+      background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.08) 45%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.08) 55%, transparent 70%);
+      animation: shimmer 4s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { opacity: 0; transform: translateX(-30%); }
+      50% { opacity: 1; transform: translateX(30%); }
+    }
+
+    @keyframes panelFadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Left cluster */
+    .solar-row-1 { top: 15%; left: -8%; transform: rotate(-8deg); }
+    .solar-row-2 { top: 28%; left: -5%; transform: rotate(-8deg); }
+    .solar-row-3 { top: 41%; left: -3%; transform: rotate(-8deg); }
+
+    /* Right cluster */
+    .solar-row-4 { top: 12%; right: -8%; left: auto; transform: rotate(8deg); }
+    .solar-row-5 { top: 25%; right: -5%; left: auto; transform: rotate(8deg); }
+    .solar-row-6 { top: 38%; right: -3%; left: auto; transform: rotate(8deg); }
+
+    .solar-row-1 .solar-panel { animation-delay: 0.1s; }
+    .solar-row-1 .solar-panel:nth-child(2) { animation-delay: 0.2s; }
+    .solar-row-1 .solar-panel:nth-child(3) { animation-delay: 0.3s; }
+    .solar-row-2 .solar-panel { animation-delay: 0.25s; }
+    .solar-row-2 .solar-panel:nth-child(2) { animation-delay: 0.35s; }
+    .solar-row-2 .solar-panel:nth-child(3) { animation-delay: 0.45s; }
+    .solar-row-3 .solar-panel { animation-delay: 0.4s; }
+    .solar-row-3 .solar-panel:nth-child(2) { animation-delay: 0.5s; }
+    .solar-row-3 .solar-panel:nth-child(3) { animation-delay: 0.6s; }
+    .solar-row-4 .solar-panel { animation-delay: 0.15s; }
+    .solar-row-4 .solar-panel:nth-child(2) { animation-delay: 0.25s; }
+    .solar-row-4 .solar-panel:nth-child(3) { animation-delay: 0.35s; }
+    .solar-row-5 .solar-panel { animation-delay: 0.3s; }
+    .solar-row-5 .solar-panel:nth-child(2) { animation-delay: 0.4s; }
+    .solar-row-5 .solar-panel:nth-child(3) { animation-delay: 0.5s; }
+    .solar-row-6 .solar-panel { animation-delay: 0.45s; }
+    .solar-row-6 .solar-panel:nth-child(2) { animation-delay: 0.55s; }
+    .solar-row-6 .solar-panel:nth-child(3) { animation-delay: 0.65s; }
+
+    /* Fade panels out toward edges */
+    .solar-row-1 { opacity: 0.25; }
+    .solar-row-2 { opacity: 0.18; }
+    .solar-row-3 { opacity: 0.10; }
+    .solar-row-4 { opacity: 0.25; }
+    .solar-row-5 { opacity: 0.18; }
+    .solar-row-6 { opacity: 0.10; }
+
+    .hero > *:not(.hero-solar) { position: relative; z-index: 1; }
 
     .hero-badge {
       display: inline-block;
@@ -576,6 +684,8 @@
       border-radius: 980px;
       transition: background 0.2s, transform 0.2s;
       border: none;
+      cursor: pointer;
+      font-family: inherit;
     }
 
     .contact-link:hover {
@@ -587,6 +697,29 @@
       width: 18px;
       height: 18px;
       flex-shrink: 0;
+    }
+
+    /* Copied tooltip */
+    .copied-toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--text);
+      color: var(--bg);
+      padding: 0.65rem 1.5rem;
+      border-radius: 980px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 9999;
+    }
+
+    .copied-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
 
     /* ===== FOOTER ===== */
@@ -619,6 +752,7 @@
       .form-section { padding: 5rem 1.5rem; }
       .hero { padding: 7rem 1.5rem 3rem; }
       .contact-links { flex-direction: column; align-items: center; }
+      .hero-solar { display: none; }
     }
 
     @media (max-width: 480px) {
@@ -725,7 +859,18 @@
 
   <!-- NAV -->
   <nav class="nav">
-    <a href="#" class="nav-logo"><svg class="logo-mark" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="12" r="6.5" fill="#1d1d1f"/><line x1="14" y1="1" x2="14" y2="4" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round"/><line x1="5.5" y1="4.5" x2="7.6" y2="6.6" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round"/><line x1="22.5" y1="4.5" x2="20.4" y2="6.6" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round"/><line x1="2" y1="12" x2="5" y2="12" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round"/><line x1="23" y1="12" x2="26" y2="12" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="22" x2="25" y2="22" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round"/></svg>Sunpower</a>
+    <a href="#" class="nav-logo">
+      <svg class="logo-mark" viewBox="0 0 28 28" fill="none">
+        <circle cx="14" cy="12" r="6.5" fill="#f2a600"/>
+        <line x1="14" y1="1" x2="14" y2="4" stroke="#f2a600" stroke-width="2" stroke-linecap="round"/>
+        <line x1="5.5" y1="4.5" x2="7.6" y2="6.6" stroke="#f2a600" stroke-width="2" stroke-linecap="round"/>
+        <line x1="22.5" y1="4.5" x2="20.4" y2="6.6" stroke="#f2a600" stroke-width="2" stroke-linecap="round"/>
+        <line x1="2" y1="12" x2="5" y2="12" stroke="#f2a600" stroke-width="2" stroke-linecap="round"/>
+        <line x1="23" y1="12" x2="26" y2="12" stroke="#f2a600" stroke-width="2" stroke-linecap="round"/>
+        <line x1="3" y1="22" x2="25" y2="22" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      VVS
+    </a>
     <div class="nav-right">
       <a href="#contact" class="nav-link">Contact Us</a>
       <a href="#quote" class="nav-cta">Get Free Quote</a>
@@ -734,10 +879,44 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-badge">Available in Kenya</div>
+    <!-- Solar panel decorative grid -->
+    <div class="hero-solar">
+      <div class="solar-panel-row solar-row-1">
+        <div class="solar-panel"><div class="shimmer"></div></div>
+        <div class="solar-panel"><div class="shimmer"></div></div>
+        <div class="solar-panel"><div class="shimmer"></div></div>
+      </div>
+      <div class="solar-panel-row solar-row-2">
+        <div class="solar-panel"><div class="shimmer"></div></div>
+        <div class="solar-panel"><div class="shimmer"></div></div>
+        <div class="solar-panel"><div class="shimmer"></div></div>
+      </div>
+      <div class="solar-panel-row solar-row-3">
+        <div class="solar-panel"><div class="shimmer"></div></div>
+        <div class="solar-panel"><div class="shimmer"></div></div>
+        <div class="solar-panel"><div class="shimmer"></div></div>
+      </div>
+      <div class="solar-panel-row solar-row-4">
+        <div class="solar-panel"><div class="shimmer"></div></div>
+        <div class="solar-panel"><div class="shimmer"></div></div>
+        <div class="solar-panel"><div class="shimmer"></div></div>
+      </div>
+      <div class="solar-panel-row solar-row-5">
+        <div class="solar-panel"><div class="shimmer"></div></div>
+        <div class="solar-panel"><div class="shimmer"></div></div>
+        <div class="solar-panel"><div class="shimmer"></div></div>
+      </div>
+      <div class="solar-panel-row solar-row-6">
+        <div class="solar-panel"><div class="shimmer"></div></div>
+        <div class="solar-panel"><div class="shimmer"></div></div>
+        <div class="solar-panel"><div class="shimmer"></div></div>
+      </div>
+    </div>
+
+    <div class="hero-badge">Available in Kenya 🇰🇪</div>
     <h1>Cut Your Electric Bill by <span class="hl">70%</span></h1>
     <p>
-      Sunpower installs premium solar panels and handles every permit.
+      Very Very Sunny installs premium solar panels and handles every permit.
       Stop paying KPLC <strong>thousands every month</strong> when the sun is free.
     </p>
     <a href="#quote" class="cta-btn">Get Your Free Quote in 60 Seconds</a>
@@ -792,15 +971,15 @@
       <div class="section-header reveal">
         <h2>Certified Technicians. Professional Installations.</h2>
         <p>
-          Every Sunpower installation is carried out by fully certified, safety-trained solar technicians.
+          Every VVS installation is carried out by fully certified, safety-trained solar technicians.
           No subcontractors. No shortcuts. Just a team that takes pride in doing the job right the first time.
         </p>
       </div>
 
       <div class="team-grid reveal">
-        <img src="images/team-install-1.jpg" alt="Sunpower technicians installing solar panels on a rooftop in Kenya">
+        <img src="images/team-install-1.jpg" alt="VVS technicians installing solar panels on a rooftop in Kenya">
         <img src="images/team-install-2.jpg" alt="Certified solar technician securing panel connections on a residential roof">
-        <img src="images/team-install-3.jpg" alt="Sunpower engineers reviewing solar system design on site">
+        <img src="images/team-install-3.jpg" alt="VVS engineers reviewing solar system design on site">
       </div>
 
       <div class="team-stats reveal">
@@ -833,7 +1012,7 @@
 
       <div class="testimonials reveal">
         <div class="testimonial">
-          <blockquote>"We were spending KES 14,000 every month on electricity. After Sunpower installed our system, our last KPLC bill was KES 2,100. My husband didn't believe it at first. Best decision we've made for this household."</blockquote>
+          <blockquote>"We were spending KES 14,000 every month on electricity. After VVS installed our system, our last KPLC bill was KES 2,100. My husband didn't believe it at first. Best decision we've made for this household."</blockquote>
           <div class="testimonial-footer">
             <div class="testimonial-author">Sarah M.<span>Karen, Nairobi</span></div>
             <div class="testimonial-savings">Saving KES 142,800/yr</div>
@@ -868,7 +1047,7 @@
         <div class="faq-item">
           <button class="faq-btn">How much does it actually cost?</button>
           <div class="faq-body">
-            <div class="faq-body-inner">A typical 5kW home system costs KES 650,000 - 850,000 depending on your roof and energy needs. With KPLC charging KES 25+ per kWh, most systems pay for themselves within 3-4 years. After that, your electricity is essentially free for 20+ years.</div>
+            <div class="faq-body-inner">It depends on your roof and energy needs. Most systems pay for themselves within a few years. After that, your electricity is essentially free for 20+ years. Get a free quote and we'll give you an exact number.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -986,9 +1165,9 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         <span>+254 764 048 20</span>
       </button>
-      <a href="mailto:info@sunpower.today" class="contact-link">
+      <a href="mailto:info@vvs.today" class="contact-link">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        info@sunpower.today
+        info@vvs.today
       </a>
     </div>
   </section>
@@ -1009,9 +1188,12 @@
   </div>
   <div class="sun-glow"></div>
 
+  <!-- Copied toast -->
+  <div class="copied-toast" id="copiedToast">Phone number copied!</div>
+
   <!-- FOOTER -->
   <footer class="footer">
-    <p>&copy; 2026 Sunpower. All rights reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Service</a></p>
+    <p>&copy; 2026 Very Very Sunny. All rights reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Service</a></p>
   </footer>
 
   <script>
@@ -1100,15 +1282,14 @@
       });
     }
 
-    // Copy phone number
+    // Copy phone number with toast
     document.querySelectorAll('.copy-phone').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var num = this.dataset.number;
-        var label = this.querySelector('span');
-        var original = label.textContent;
+        var toast = document.getElementById('copiedToast');
         navigator.clipboard.writeText(num).then(function() {
-          label.textContent = 'Copied!';
-          setTimeout(function() { label.textContent = original; }, 2000);
+          toast.classList.add('show');
+          setTimeout(function() { toast.classList.remove('show'); }, 2000);
         });
       });
     });
