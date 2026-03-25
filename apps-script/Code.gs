@@ -14,7 +14,7 @@ var CONFIG = {
   TELEGRAM_BOT_TOKEN: '8645545256:AAEVNwgEpmT9A9STih40Ybv2K8Uy5yWzE3s',
   TELEGRAM_CHAT_ID:   '-1003834770003',
   TELEGRAM_TOPIC_ID:  3,  // topic/thread ID from group with topics enabled
-  SPREADSHEET_ID:     '1ROO9M9awCGycMJzabCqdpsdd0LMsXpaQXscUU_6HZwI',
+  SPREADSHEET_ID:     '1xWsfY5xaMlKBeCvhbmVjrkNiw_pmdRd2UzQVhgkjAd8',
   SHEET_NAME:         'Leads'
 };
 
