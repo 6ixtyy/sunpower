@@ -1103,7 +1103,7 @@
       <h2>Get Your Free Solar Savings Report</h2>
       <p class="form-sub">Find out exactly how much you'll save. Takes 60 seconds. Zero obligation.</p>
 
-      <form id="leadForm" onsubmit="handleSubmit(event)">
+      <form id="leadForm" action="https://script.google.com/macros/s/AKfycbzhzLQ7JtnRXO6ZmtssKe2FPclrWjlqAnZ3GleP7ZV6Pz5QYLYjzZ8_AuzYD0MD2GTjDA/exec" method="POST" target="lead-submit-frame" onsubmit="handleSubmit(event)">
         <!-- Honeypot - hidden from humans, bots fill it -->
         <div style="position:absolute;left:-9999px;" aria-hidden="true">
           <input type="text" name="website" tabindex="-1" autocomplete="off">
@@ -1248,40 +1248,29 @@
       countObserver.observe(el);
     });
 
-    // Form — posts to Google Apps Script web app
-    var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzhzLQ7JtnRXO6ZmtssKe2FPclrWjlqAnZ3GleP7ZV6Pz5QYLYjzZ8_AuzYD0MD2GTjDA/exec';
-
+    // Form — native POST into hidden iframe, JS only handles UI
     function handleSubmit(e) {
-      e.preventDefault();
+      // Do NOT preventDefault — let the form submit natively into the iframe
       var form = e.target;
       var btn = form.querySelector('.form-btn');
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
 
-      // Populate hidden fields
+      // Populate hidden fields before submission
       document.getElementById('pageUrl').value = window.location.href;
       document.getElementById('submittedAt').value = new Date().toISOString();
 
-      // Build URL-encoded body
-      var formData = new FormData(form);
-      var params = new URLSearchParams();
-      formData.forEach(function(value, key) { params.append(key, value); });
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
 
-      // POST as no-cors (Apps Script redirects break normal fetch)
-      // We can't read the response, but the lead still gets saved
-      fetch(APPS_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: params.toString()
-      }).then(function() {
+      // Show success after a short delay (iframe load is cross-origin, can't read it)
+      setTimeout(function() {
         btn.textContent = 'Quote Requested!';
         btn.style.background = '#1d7d3f';
-        form.reset();
-      }).catch(function() {
-        btn.textContent = 'Error - Try Again';
-        btn.disabled = false;
-      });
+        // Reset form fields but keep action/target intact
+        document.getElementById('firstName').value = '';
+        document.getElementById('lastName').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('phone').value = '';
+      }, 3000);
     }
 
     // Copy phone number with toast
