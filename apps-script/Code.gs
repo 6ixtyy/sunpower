@@ -11,9 +11,10 @@
 
 // --- CONFIG — fill these in before deploying ---
 var CONFIG = {
-  TELEGRAM_BOT_TOKEN: 'PASTE_YOUR_BOT_TOKEN_HERE',      // from @BotFather
-  TELEGRAM_CHAT_ID:   'PASTE_YOUR_GROUP_CHAT_ID_HERE',   // numeric, e.g. -1001234567890
-  SPREADSHEET_ID:     'PASTE_YOUR_SPREADSHEET_ID_HERE',  // from the Sheet URL
+  TELEGRAM_BOT_TOKEN: '8645545256:AAEVNwgEpmT9A9STih40Ybv2K8Uy5yWzE3s',
+  TELEGRAM_CHAT_ID:   '-1003834770003',
+  TELEGRAM_TOPIC_ID:  3,  // topic/thread ID from group with topics enabled
+  SPREADSHEET_ID:     '1l4JAmWXmrTiWshQAi5bQf9sl9phoUe7mzmYBYMEKwaI',
   SHEET_NAME:         'Leads'
 };
 
@@ -104,6 +105,7 @@ function sendTelegram(firstName, lastName, email, phone, pageUrl, receivedAt) {
 
   var payload = {
     chat_id: CONFIG.TELEGRAM_CHAT_ID,
+    message_thread_id: CONFIG.TELEGRAM_TOPIC_ID,
     text: text
   };
 
