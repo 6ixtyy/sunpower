@@ -1262,28 +1262,37 @@
       document.getElementById('pageUrl').value = window.location.href;
       document.getElementById('submittedAt').value = new Date().toISOString();
 
-      // Submit via fetch to Apps Script
-      fetch(APPS_SCRIPT_URL, {
-        method: 'POST',
-        body: new FormData(form)
-      }).then(function(res) {
-        return res.json();
-      }).then(function(data) {
-        if (data.ok) {
-          btn.textContent = 'Quote Requested!';
-          btn.style.background = '#1d7d3f';
-          form.reset();
-        } else {
-          btn.textContent = 'Error - Try Again';
-          btn.disabled = false;
-        }
-      }).catch(function() {
-        // Fallback: assume success since Apps Script redirects can break fetch
-        // The lead is likely saved even if we can't parse the response
+      // Set form to POST into hidden iframe (avoids CORS redirect issues)
+      form.action = APPS_SCRIPT_URL;
+      form.method = 'POST';
+      form.target = 'lead-submit-frame';
+
+      // Listen for iframe load (means Apps Script responded)
+      var iframe = document.getElementById('leadFrame');
+      var submitted = false;
+
+      iframe.onload = function() {
+        if (!submitted) return; // ignore initial empty load
         btn.textContent = 'Quote Requested!';
         btn.style.background = '#1d7d3f';
         form.reset();
-      });
+        form.removeAttribute('action');
+        form.removeAttribute('target');
+      };
+
+      submitted = true;
+      form.submit(); // native submit into iframe
+
+      // Fallback timeout in case iframe onload doesn't fire
+      setTimeout(function() {
+        if (btn.textContent === 'Sending...') {
+          btn.textContent = 'Quote Requested!';
+          btn.style.background = '#1d7d3f';
+          form.reset();
+          form.removeAttribute('action');
+          form.removeAttribute('target');
+        }
+      }, 5000);
     }
 
     // Copy phone number with toast
