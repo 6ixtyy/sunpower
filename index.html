@@ -1248,7 +1248,7 @@
       countObserver.observe(el);
     });
 
-    // Form — posts to Google Apps Script web app via hidden iframe
+    // Form — posts to Google Apps Script web app
     var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzhzLQ7JtnRXO6ZmtssKe2FPclrWjlqAnZ3GleP7ZV6Pz5QYLYjzZ8_AuzYD0MD2GTjDA/exec';
 
     function handleSubmit(e) {
@@ -1262,37 +1262,26 @@
       document.getElementById('pageUrl').value = window.location.href;
       document.getElementById('submittedAt').value = new Date().toISOString();
 
-      // Set form to POST into hidden iframe (avoids CORS redirect issues)
-      form.action = APPS_SCRIPT_URL;
-      form.method = 'POST';
-      form.target = 'lead-submit-frame';
+      // Build URL-encoded body
+      var formData = new FormData(form);
+      var params = new URLSearchParams();
+      formData.forEach(function(value, key) { params.append(key, value); });
 
-      // Listen for iframe load (means Apps Script responded)
-      var iframe = document.getElementById('leadFrame');
-      var submitted = false;
-
-      iframe.onload = function() {
-        if (!submitted) return; // ignore initial empty load
+      // POST as no-cors (Apps Script redirects break normal fetch)
+      // We can't read the response, but the lead still gets saved
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString()
+      }).then(function() {
         btn.textContent = 'Quote Requested!';
         btn.style.background = '#1d7d3f';
         form.reset();
-        form.removeAttribute('action');
-        form.removeAttribute('target');
-      };
-
-      submitted = true;
-      form.submit(); // native submit into iframe
-
-      // Fallback timeout in case iframe onload doesn't fire
-      setTimeout(function() {
-        if (btn.textContent === 'Sending...') {
-          btn.textContent = 'Quote Requested!';
-          btn.style.background = '#1d7d3f';
-          form.reset();
-          form.removeAttribute('action');
-          form.removeAttribute('target');
-        }
-      }, 5000);
+      }).catch(function() {
+        btn.textContent = 'Error - Try Again';
+        btn.disabled = false;
+      });
     }
 
     // Copy phone number with toast
