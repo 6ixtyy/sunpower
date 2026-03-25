@@ -18,8 +18,11 @@ var CONFIG = {
   SHEET_NAME:         'Leads'
 };
 
-// --- Main handler ---
-function doPost(e) {
+// --- Main handler (supports both GET and POST) ---
+function doGet(e) { return handleRequest(e); }
+function doPost(e) { return handleRequest(e); }
+
+function handleRequest(e) {
   try {
     var p = e.parameter;
 
@@ -65,7 +68,7 @@ function doPost(e) {
     return jsonResponse({ ok: true, status: status, message: 'Lead received.' });
 
   } catch (err) {
-    Logger.log('doPost error: ' + err.message);
+    Logger.log('handleRequest error: ' + err.message);
     return jsonResponse({ ok: false, status: 'error', message: err.message });
   }
 }

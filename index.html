@@ -1103,7 +1103,7 @@
       <h2>Get Your Free Solar Savings Report</h2>
       <p class="form-sub">Find out exactly how much you'll save. Takes 60 seconds. Zero obligation.</p>
 
-      <form id="leadForm" action="https://script.google.com/macros/s/AKfycbyz68qpXU26TelnDtscC0nKH5qJZgGj-9vfG-n5Q1F7n9Fa2YJAiDioS4ha7VF1blXKbw/exec" method="POST" target="lead-submit-frame" onsubmit="handleSubmit(event)">
+      <form id="leadForm" onsubmit="handleSubmit(event)">
         <!-- Honeypot - hidden from humans, bots fill it -->
         <div style="position:absolute;left:-9999px;" aria-hidden="true">
           <input type="text" name="website" tabindex="-1" autocomplete="off">
@@ -1248,29 +1248,45 @@
       countObserver.observe(el);
     });
 
-    // Form — native POST into hidden iframe, JS only handles UI
+    // Form — sends lead as GET request via hidden iframe src (bulletproof for Apps Script)
+    var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyz68qpXU26TelnDtscC0nKH5qJZgGj-9vfG-n5Q1F7n9Fa2YJAiDioS4ha7VF1blXKbw/exec';
+
     function handleSubmit(e) {
-      // Do NOT preventDefault — let the form submit natively into the iframe
+      e.preventDefault();
       var form = e.target;
       var btn = form.querySelector('.form-btn');
-
-      // Populate hidden fields before submission
-      document.getElementById('pageUrl').value = window.location.href;
-      document.getElementById('submittedAt').value = new Date().toISOString();
-
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
-      // Show success after a short delay (iframe load is cross-origin, can't read it)
-      setTimeout(function() {
+      // Build query string from form fields
+      var params = new URLSearchParams();
+      params.append('firstName', document.getElementById('firstName').value);
+      params.append('lastName', document.getElementById('lastName').value);
+      params.append('email', document.getElementById('email').value);
+      params.append('phone', document.getElementById('phone').value);
+      params.append('website', ''); // honeypot — always empty for real users
+      params.append('pageUrl', window.location.href);
+      params.append('submittedAt', new Date().toISOString());
+
+      // Load Apps Script URL with params in hidden iframe (follows redirects natively)
+      var iframe = document.getElementById('leadFrame');
+      iframe.src = APPS_SCRIPT_URL + '?' + params.toString();
+
+      // Listen for iframe load = Apps Script responded
+      iframe.onload = function() {
         btn.textContent = 'Quote Requested!';
         btn.style.background = '#1d7d3f';
-        // Reset form fields but keep action/target intact
-        document.getElementById('firstName').value = '';
-        document.getElementById('lastName').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('phone').value = '';
-      }, 3000);
+        form.reset();
+      };
+
+      // Fallback in case onload doesn't fire
+      setTimeout(function() {
+        if (btn.textContent === 'Sending...') {
+          btn.textContent = 'Quote Requested!';
+          btn.style.background = '#1d7d3f';
+          form.reset();
+        }
+      }, 6000);
     }
 
     // Copy phone number with toast
